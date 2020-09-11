@@ -1,0 +1,124 @@
+
+Solution: 
+---------
+
+/* saidixith002/Hackerrank-Solutions  - Github Repository  */
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the timeInWords function below.
+    static String timeInWords(int h, int m) {
+
+
+    String str="";
+        int x;
+        if(m>30)
+        { 
+            m=60-m;
+            if(m>20)
+            {
+                x=m/10;
+                x=x*10;
+                str+=numberword(x);
+                str=str+" "+numberword(m%10);
+            }
+            else str+=numberword(m);
+            if(m!=15)
+            str+=" minutes to ";
+            else str+=" to ";
+            str+=numberword(h+1);
+        }
+        else if(m==0)
+        {
+            str+=numberword(h);
+            str+=numberword(m);
+        }
+        else if(m<30)
+        {
+            if(m>20)
+            {
+                x=m/10;
+                x=x*10;
+                str+=numberword(x);
+                str=str+" "+numberword(m%10);
+            }
+            else str+=numberword(m);
+
+            if(m!=15&&m!=1)
+            str+=" minutes past ";
+            else if(m==1)
+            str+=" minute past ";
+            else str+=" past ";
+            str+=numberword(h);
+        }
+        else 
+        {
+            str+=numberword(m);
+            str+=" past ";
+            str+=numberword(h);
+        }
+    return str;
+
+    }
+
+    static String numberword(int x)
+    { String retur="";
+        switch(x)
+        {
+            case 0:retur=" o' clock ";break;
+            case 1:retur="one";break;
+            case 2:retur="two";break;
+            case 3:retur="three";break;
+            case 4:retur="four";break;
+            case 5:retur="five";break;
+            case 6:retur="six";break;
+            case 7:retur="seven";break;
+            case 8:retur="eight";break;
+            case 9:retur="nine";break;
+            case 10:retur="ten";break;
+            case 11:retur="eleven";break;
+            case 12:retur="twelve";break;
+            case 13:retur="thirteen";    break;        
+            case 14:retur="fourteen"; break;
+            case 15:retur="quarter";         break;              
+            case 16:retur="sixteen";break;
+            case 17:retur="seventeen"; break;
+            case 18:retur="eightteen";break;
+            case 19:retur="nineteen";break;
+            case 20:retur="twenty";break;
+            case 30:retur="half";break;
+            case 40:retur="fourty"; break;
+            case 50:retur="fifty";        break;       
+        }
+        return retur;
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int h = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        int m = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        String result = timeInWords(h, m);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedWriter.close();
+
+        scanner.close();
+    }
+}
