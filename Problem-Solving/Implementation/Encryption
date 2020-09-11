@@ -1,0 +1,43 @@
+
+Solution: 
+---------
+
+/* saidixith002/Hackerrank-Solutions  - Github Repository  */
+
+import java.lang.*;
+import java.util.Scanner;
+class Solution
+{
+	public static void main(String rg[])
+	{
+		int k,count=0;
+		String s;
+		Scanner sc=new Scanner(System.in);
+		s=sc.next();
+		double x1=Math.sqrt(s.length());
+		//char ch[]=new char[s.length()];
+		
+int x=(int)x1;int y=x+1;
+if(x*y<s.length())x=y;
+if(x*x==s.length())y=x;
+//System.out.println(s.length()+" "+x+y);
+
+		
+		for(int i=0;i<y;i++)
+		{
+			for(int j=0;j<x;j++)
+			{
+				k=i+(j*y);
+				
+				System.out.print(s.charAt(k));
+			}
+			
+			System.out.print(" ");
+			count++;
+			if((y-count)==(x*y-s.length()))
+				x--;
+		}
+}
+} 	
+
+
