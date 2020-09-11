@@ -19,4 +19,8 @@ Problem Solving:
       9. Birthday Cake Candles - java 8
       10. Time Conversion - java 7
   2. Implementation
-      1.
+      1. Extra Long Factorials - java 8
+      2. Organizing Containers of Balls - java 7
+      3. Encryption - java 8
+      4. The Time in Words - java 8
+      5. 3D Surface Area - java 8
